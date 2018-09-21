@@ -23,7 +23,6 @@ router.post("/register", (req, res, next) => {
 });
 // Authenticate
 router.post("/authenticate", (req, res, next) => {
-  res.send("AUTHENTICATE");
   const username = req.body.username;
   const password = req.body.password;
   User.getUserByUsername(username, (err, user) => {
@@ -54,9 +53,6 @@ router.post("/authenticate", (req, res, next) => {
   });
 });
 // Profile
-router.get("/profile", (req, res, next) => {
-  res.send("PROFILE");
-});
 router.get(
   "/profile",
   passport.authenticate("jwt", { session: false }),
